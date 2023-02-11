@@ -1,0 +1,19 @@
+#!/bin/bash
+sudo su -
+#Java Installing
+cd /opt/
+wget https://download.oracle.com/java/19/latest/jdk-19_linux-aarch64_bin.rpm
+rpm -ivh jdk-19_linux-aarch64_bin.rpm
+or 
+yum install java -y 
+#tomcat installing 
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27-windows-x64.zip
+unzip apache-tomcat-10.0.27-windows-x64.zip
+mv apache-tomcat-10.0.27 tomcat
+cd tomcat/bin/
+chmod 777 *
+bash startup.sh
+cd /opt/
+wget https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+unzip shoppingcart.zip
+cp -rf shoppingcart.war tomcat/webapps/.
